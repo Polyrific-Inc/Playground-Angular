@@ -13,7 +13,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.5" />
+    <PackageReference Include="Polyrific.Project.Core" Version="1.0.0.27301" />
+    <PackageReference Include="Polyrific.Project.Data" Version="1.0.0.27302" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,32 @@
+<!--OpenCatapultModelId:1075-->
+<h1>New Product</h1>
+
+<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+  <form class="mb-4 mt-4" [formGroup]="productForm" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" formControlName="name" id="name" placeholder="Enter name" [ngClass]="{ 'is-invalid': f.name.errors && (submitted || f.name.touched || f.name.dirty) }">
+      <div *ngIf="f.name.errors && (submitted || f.name.touched || f.name.dirty) " class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">
+          Name is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" class="form-control" formControlName="price" id="price" placeholder="Enter price" [ngClass]="{ 'is-invalid': f.price.errors && (submitted || f.price.touched || f.price.dirty) }">
+      <div *ngIf="f.price.errors && (submitted || f.price.touched || f.price.dirty) " class="invalid-feedback">
+        <div *ngIf="f.price.errors.required">
+          Price is required.
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary" [disabled]="loading || productForm.invalid">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Save
+      </button>
+      <button type="button" class="btn btn-outline-secondary ml-2" (click)="onClickCancelBtn()">Cancel</button>
+    </div>
+  </form>
+</div>
+

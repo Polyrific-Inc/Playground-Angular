@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Web.Data;
 
 namespace Web
 {
@@ -21,6 +22,13 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddApplicationDbContext()
+                .AddDataRepositories()
+                .AddApplicationServices();
+
+            services.AddAutoMapper(typeof(Startup).Assembly);
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

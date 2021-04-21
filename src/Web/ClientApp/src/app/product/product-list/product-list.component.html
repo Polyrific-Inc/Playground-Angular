@@ -1,0 +1,23 @@
+<h1 id="tableLabel">
+  Product
+  <button class="btn btn-primary ml-2" [routerLink]="['new']">New</button>
+</h1>
+
+<p *ngIf="!products"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td><button class="btn btn-secondary" [routerLink]="[product.id]">Edit</button> <button class="btn btn-danger ml-2" (click)="onDeleteClicked(product.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
