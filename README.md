@@ -32,6 +32,6 @@ The `API` folder is where we put the backend API for each module. It includes:
 - Entity class as the Domain class
 - DTO class
 
-The `Data` folder provide the database setup for the server. It currently use In Memory database as the storage, so you don't need to install additional database. When adding a new module, you would need to register the Service and Repository of the module in `ApplicationServiceSetup.cs` and `DataRepositorySetup.cs` respectively.
+The `Data` folder provide the database setup for the server. It currently use In Memory database as the storage, so you don't need to install additional database. When adding a new module, you would need to register the Entity, Service and Repository of the module in `ApplicationDbContext.cs`, `ApplicationServiceSetup.cs` and `DataRepositorySetup.cs` respectively.
 
 The `ClientApp` folder is a standard Angular CLI application. If you open a command prompt in that directory, you can run any `ng` command (e.g. `ng test`, or use `npm` to install extra packages to it)

@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Web.API.Category;
 using Web.API.Product;
 
 namespace Web.Data
@@ -16,5 +13,14 @@ namespace Web.Data
         }
 
         public DbSet<ProductEntity> Products { get; set; }
+
+        public DbSet<CategoryEntity> Categories { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<ProductEntity>().HasOne(e => e.Category).WithMany().HasForeignKey(e => e.CategoryId);
+        }
     }
 }
